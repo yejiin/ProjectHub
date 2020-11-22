@@ -14,14 +14,15 @@
     <div class="form-wrap">
         <div class="form-html">
             <input id="tab-1" type="radio" name="tab" class="title" checked><label for="tab-1" class="tab">Login</label>
-            <div class="form">
+            <form action="login" method="post" class="form">
+            	<p style="color:red">${message}</p>
                 <div class="group">
-                    <label for="user" class="label">Id</label>
-                    <input id="user" type="text" class="input">
+                    <label for="id" class="label">Id</label>
+                    <input type="text" id="id" class="input" name="id" required/>
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input type="password" id="pass" class="input" name="password" required>
                     </div>
                 <div class="group">
                     <input type="submit" class="loginbutton" value="Login">
@@ -29,7 +30,7 @@
                 <div class="group">
                     <button class="signupbutton" onclick="location.href='/signup'">Sign up</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 <%@ include file ="./common/footer.jsp" %>

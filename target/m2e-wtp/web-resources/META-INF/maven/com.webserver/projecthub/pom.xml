@@ -144,6 +144,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- JSON 처리 라이브러리,  406에러 해결 -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+	
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>

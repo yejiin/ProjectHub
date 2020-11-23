@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webserver.projecthub.service.UserService;
 import com.webserver.projecthub.vo.User;
@@ -29,15 +30,25 @@ public class UserController {
 			return "home";
 		}
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/idChk", method = RequestMethod.POST)
+	public int idChk(User user) {
+		int result = service.idChk(user);
+		return result;
+	}
 
 	@RequestMapping(value="/signup", method = RequestMethod.POST)
-	public String signup(User user, Model model) {
-		int result = service.signup(user);	
-		if(result == 0) {
-			model.addAttribute("message", "같은 아이디가 있습니다.");
+	public String signup(User user) {
+		int result = service.idChk(user); 
+		if(result == 1) {
 			return "signup";
+		}else {
+			service.signup(user);
 		}
 		return "login";
 	}
+	
+
 	
 }

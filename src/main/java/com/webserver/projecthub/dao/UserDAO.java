@@ -16,7 +16,6 @@ public class UserDAO {
 	
 	public User login(User user) {
 		User result = null;
-		
 		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		
 		try {
@@ -34,11 +33,23 @@ public class UserDAO {
 		
 		try {
 			result = mapper.signup(user);
-			System.out.println(result);
 		}catch(Exception e) {
 			e.printStackTrace();
 			return result;
 		}
+		return result;
+	}
+	
+	public int idChk(User user) {
+		int result = 0;
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		try {
+			result = mapper.idChk(user);
+		}catch(Exception e) {
+			e.printStackTrace();
+			return result;
+		}
+		
 		return result;
 	}
 }

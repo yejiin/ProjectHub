@@ -7,5 +7,7 @@ public interface UserMapper {
 	public User login(User user);
 	
 	public int signup(User user);
+	
+	public int idChk(User user);
 
 }

@@ -13,4 +13,9 @@
 		INSERT INTO user (id, password, username)
 		VALUES ( #{id}, #{password}, #{username})
 	</insert>
+	
+	<select id="idChk" resultType="int">
+		SELECT COUNT(*) FROM user
+		WHERE id = #{id}
+	</select>
 </mapper>

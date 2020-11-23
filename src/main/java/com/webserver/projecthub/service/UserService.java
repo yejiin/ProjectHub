@@ -19,4 +19,8 @@ public class UserService {
 	public int signup(User user) {
 		return dao.signup(user);
 	}
+	
+	public int idChk(User user) {
+		return dao.idChk(user);
+	}
 }

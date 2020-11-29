@@ -4,10 +4,10 @@ import com.webserver.projecthub.vo.User;
 
 public interface UserMapper {
 	
-	public User login(User user);
+	public User login(User user) throws Exception;
 	
-	public int signup(User user);
+	public int signup(User user) throws Exception;
 	
-	public int idChk(User user);
+	public int idChk(User user) throws Exception;
 
 }

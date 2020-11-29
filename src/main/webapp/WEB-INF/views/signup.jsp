@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="/resources/css/signup.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</head>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#cancel").on("click", function(){
@@ -33,7 +32,7 @@
 			}
 			if($("#pass").val() != $("#pass2").val()){
 				alert("비밀번호가 일치하지 않습니다.");
-				$("#pass").focus();
+				$("#").focus();
 				return false;
 			}
 			
@@ -63,10 +62,8 @@
 			}
 		});
 	}
-	
-		
-
 </script>
+</head>
 <body>
 <%@ include file ="./common/header.jsp" %>
 <main>

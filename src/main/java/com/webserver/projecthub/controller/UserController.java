@@ -27,7 +27,7 @@ public class UserController {
 			return "login";
 		} else {
 			session.setAttribute("loginId", result.getId());
-			return "home";
+			return "redirect:/project";
 		}
 	}
 	

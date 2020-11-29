@@ -4,7 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mysql.jdbc.log.Log;
 import com.webserver.projecthub.dao.mapper.UserMapper;
 import com.webserver.projecthub.vo.User;
 
@@ -47,7 +46,6 @@ public class UserDAO {
 			result = mapper.idChk(user);
 		}catch(Exception e) {
 			e.printStackTrace();
-			return result;
 		}
 		
 		return result;

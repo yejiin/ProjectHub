@@ -48,4 +48,9 @@ public class ProjectController {
 			return "mp";
 		}
 	}
+	
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detail() {
+		return "project/detail";
+	}
 }

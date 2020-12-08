@@ -149,7 +149,7 @@ img {
         <div class="card_content">
           <h2 class="card_title">Project Name: <c:out value="${list.name}"/></h2>
           <p class="card_text">start date: <c:out value="${list.startdate}"/></p>
-          <button class="btn1 card_btn">Enter</button>
+          <button class="btn1 card_btn" onclick="location.href='/project/detail'" >Enter</button>
         </div>
       </div>
     </li>

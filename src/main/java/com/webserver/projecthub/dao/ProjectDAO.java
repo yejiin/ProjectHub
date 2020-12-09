@@ -29,6 +29,17 @@ public class ProjectDAO {
 		return list;
 	}
 	
+	public String projectName(int no) {
+		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
+		String name ="";
+		try {
+			name = mapper.projectName(no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return name;
+	}
+	
 	public int insertProject(Project project) {
 		int result = 0;
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);

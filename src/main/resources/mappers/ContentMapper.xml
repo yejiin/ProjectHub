@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.webserver.projecthub.dao.mapper.ContentMapper">
+	
+	<!-- website list -->
+	<select id="websiteList" parameterType="int" resultType="Content">
+		SELECT no, project_no, ctgr, url, memo
+		FROM content
+		WHERE project_no = #{projectNo}
+		AND ctgr="website"
+		ORDER BY no DESC
+	</select>
+
+	<!-- memo list -->
+	<select id="memoList" parameterType="int" resultType="Content">
+		SELECT no, project_no, ctgr, url, memo
+		FROM content
+		WHERE project_no = #{projectNo}
+		AND ctgr="memo"
+		ORDER BY no DESC
+	</select>
+	
+	<!-- website insert -->
+	<insert id="insertWebsite">
+		INSERT INTO content (project_no, ctgr, url, memo)
+		VALUES (#{projectNo}, "website", #{url}, #{memo})
+	</insert>
+	
+	<!-- memo insert -->
+	<insert id="insertMemo">
+		INSERT INTO content (project_no, ctgr, url, memo)
+		VALUES (#{projectNo}, "memo", NULL, #{memo})
+	</insert>
+</mapper>

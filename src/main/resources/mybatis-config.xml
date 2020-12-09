@@ -5,10 +5,12 @@
 	<typeAliases>
 		<typeAlias type="com.webserver.projecthub.vo.User" alias="User" />
 		<typeAlias type="com.webserver.projecthub.vo.Project" alias="Project" />
+		<typeAlias type="com.webserver.projecthub.vo.Content" alias="Content" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
 		<mapper resource="mappers/ProjectMapper.xml" />
+		<mapper resource="mappers/ContentMapper.xml" />
 	</mappers> 
 
 </configuration>

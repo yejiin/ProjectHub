@@ -7,6 +7,8 @@ import com.webserver.projecthub.vo.Project;
 public interface ProjectMapper {
 	
 	public List<Project> projectList(String userId) throws Exception;
+	
+	public String projectName(int no) throws Exception;
 
 	public int insertProject(Project project) throws Exception;
 }

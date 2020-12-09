@@ -1,13 +1,17 @@
 package com.webserver.projecthub.vo;
 
 public class Project {
-	private String no;
+	private int no;
 	private String userId;
 	private String name;
 	private String startdate;
 	private String des;
 	
-	public Project(String no, String userId, String name, String startdate, String des) {
+	public Project() {
+		super();
+	}
+
+	public Project(int no, String userId, String name, String startdate, String des) {
 		super();
 		this.no = no;
 		this.userId = userId;
@@ -15,18 +19,12 @@ public class Project {
 		this.startdate = startdate;
 		this.des = des;
 	}
-	
 
-	public Project() {
-		super();
-	}
-
-
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
 
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 
@@ -67,6 +65,8 @@ public class Project {
 		return "Project [no=" + no + ", userId=" + userId + ", name=" + name + ", startdate=" + startdate + ", des="
 				+ des + "]";
 	}
+	
+	
 	
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,6 @@
 <title>ProjectHub</title>
 <link rel="stylesheet" href="/resources/css/common.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
-
 <style>
 #header{
 position: fixed;
@@ -69,7 +69,6 @@ position: fixed;
   
 #page-content-wrapper {
     margin-left: 50px;
-    margin-right: 100px;
     width: 100%;
     padding: 20px;
 }
@@ -78,6 +77,12 @@ position: fixed;
 	margin-top: 50px;
 }
 
+.alert{
+	width: 800px;
+}
+.card{
+width: 800px;
+}
 </style>
 </head>
 <body>
@@ -92,18 +97,39 @@ position: fixed;
     </ul>
   </div>
   <div id="page-content-wrapper">
-  	<h1 id="name">Project 이름</h1>
-  	<button>추가</button>
+  	<h1 id="name"><c:out value="${projectName}"/></h1>
+  	<button onclick="location.href='/project/detail/insertwebView/<c:out value="${projectNo}"/>'">웹사이트추가</button>
+  	<button onclick="location.href='/project/detail/insertmemoView/<c:out value="${projectNo}"/>'">메모추가</button>
   <div id="website" >
   	<h3 style="margin-top: 50px;">웹사이트</h3>
-
+  	<c:forEach items="${websiteList}" var = "list">
+	<div class="card border-secondary mb-3" style="user-select: auto;">
+  		<div class="card-header" style="user-select: auto;">
+   			<button type="button" class="close" data-dismiss="alert" style="user-select: auto;">&times;</button>
+  			<h4><a href="#" class="alert-link" style="user-select: auto;"><c:out value="${list.url}"/></a></h4>
+  		</div>
+  		<div class="card-body" style="user-select: auto;">
+    		<p class="card-text" style="user-select: auto;"><c:out value="${list.memo}"/></p>
+  		</div>
+	</div>
+	</c:forEach>
   </div>
   
   <div id="memo">
   	<h3 style="margin-top: 50px;">메모</h3>
-
+  	<c:forEach items="${memoList}" var = "memolist">
+  	<div class="alert alert-dismissible alert-light" style="user-select: auto;">
+  	<button type="button" class="close" data-dismiss="alert" style="user-select: auto;">&times;</button>
+  	<p class="mb-0" style="user-select: auto;"><c:out value="${memolist.memo}"/></p>
+	</div>
+	</c:forEach>
+  </div>
+  
+  <div id="file">
+  	<h3 style="margin-top: 50px;">파일</h3>
   </div>
   </div>
   
   </div>
-<%@ include file ="../common/footer.jsp" %>
+</body>
+</html>

@@ -6,11 +6,13 @@
 		<typeAlias type="com.webserver.projecthub.vo.User" alias="User" />
 		<typeAlias type="com.webserver.projecthub.vo.Project" alias="Project" />
 		<typeAlias type="com.webserver.projecthub.vo.Content" alias="Content" />
+		<typeAlias type="com.webserver.projecthub.vo.Files" alias="Files" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
 		<mapper resource="mappers/ProjectMapper.xml" />
 		<mapper resource="mappers/ContentMapper.xml" />
+		<mapper resource="mappers/FileMapper.xml" />
 	</mappers> 
 
 </configuration>

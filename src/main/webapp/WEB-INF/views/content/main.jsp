@@ -129,6 +129,13 @@ footer{
 </style>
 <script type="text/javascript">
 
+	$(document).ready(function(){
+		$(".custom-file-input").on("change", function(){
+			var fileName = $(this).val().split("\\").pop();
+			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+		})
+	});
+	
 	function upweb(no){
 		var chk = confirm("수정하시겠습니까?");
 		if(chk){
@@ -147,6 +154,11 @@ footer{
 		if (chk){
 			location.href="delete/<c:out value="${projectNo}"/>/" + no;
 		}
+	}
+	
+	
+	function insertFile(){
+		
 	}
 </script>
 </head>
@@ -196,11 +208,19 @@ footer{
 	</c:forEach>
   </div>
   
-  <div id="file">
-  	<h3 style="margin-top: 50px;">파일</h3>
+  <div class="form-group" id="file" style="user-select: auto;">
+    <h3 style="margin-top: 50px;">파일</h3>
+    <form action="uploadfile/<c:out value="${projectNo}"/>" enctype="multipart/form-data" method="post" class="input-group mb-3" style="user-select: auto;">
+      <div class="custom-file" style="user-select: auto;">
+        <input type="file" class="custom-file-input" id="customFile" name="files" style="user-select: auto;">
+        <label class="custom-file-label" for="customFile" style="user-select: auto;">Choose file</label>
+      </div>
+      <div class="input-group-append" style="user-select: auto;">
+        <input type="submit" class="input-group-text" style="user-select: auto;">
+      </div>
+    </form>
   </div>
-  </div>
-  
-  </div>
+ </div>
+</div>
  
 <%@ include file ="../common/footer.jsp" %>

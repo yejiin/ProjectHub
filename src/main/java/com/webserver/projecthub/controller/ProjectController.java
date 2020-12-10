@@ -2,18 +2,28 @@ package com.webserver.projecthub.controller;
 
 
 
+
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.webserver.projecthub.service.ContentService;
+import com.webserver.projecthub.service.FileService;
 import com.webserver.projecthub.service.ProjectService;
 import com.webserver.projecthub.vo.Content;
+import com.webserver.projecthub.vo.Files;
 import com.webserver.projecthub.vo.Project;
 
 @Controller
@@ -26,6 +36,8 @@ public class ProjectController {
 	@Autowired
 	ContentService contentservice;
 	
+	@Autowired
+	FileService fileservice;
 	
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -137,7 +149,6 @@ public class ProjectController {
 		
 	}
 	
-	
 	@RequestMapping(value = "/detail/delete/{projectNo}/{no}", method = RequestMethod.GET)
 	public String delete(@PathVariable("projectNo") int projectNo,@PathVariable("no") int no) {
 		int result = contentservice.deleteContent(no);
@@ -147,4 +158,36 @@ public class ProjectController {
 			return "redirect:../" + projectNo;
 		}
 	}
+	
+	@RequestMapping(value = "/detail/uploadfile/{projectNo}", method = RequestMethod.POST)
+	public String insertFile(@PathVariable("projectNo") int projectNo, @RequestPart MultipartFile files) throws  Exception{
+		Files file = new Files();
+		
+		String sourceFileName = files.getOriginalFilename();
+		String sourceFileNameExtension = FilenameUtils.getExtension(sourceFileName).toLowerCase();
+		File destinationFile;
+		String destinationFileName;
+		String filePath = "D:/Java/source/";
+		String fileSize = String.valueOf(files.getSize());
+		
+		do { 
+			destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + sourceFileNameExtension; 
+			destinationFile = new File(filePath + destinationFileName); 
+	} while (destinationFile.exists()); 
+		
+		destinationFile.getParentFile().mkdirs();
+		files.transferTo(destinationFile);
+		
+		file.setProjectNo(projectNo);
+		file.setName(destinationFileName);
+		file.setOriname(sourceFileName);
+		System.out.println("name: " + file.getName());
+		file.setPath(filePath);
+		file.setSize(fileSize);
+		fileservice.insertFile(file);
+		
+		
+		return "redirect:/project/detail/" + projectNo;
+	}
+	
 }

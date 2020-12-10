@@ -29,15 +29,15 @@ public class ProjectDAO {
 		return list;
 	}
 	
-	public String projectName(int no) {
+	public Project project(int no) {
+		Project project = new Project();
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
-		String name ="";
 		try {
-			name = mapper.projectName(no);
+			project = mapper.project(no);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return name;
+		return project;
 	}
 	
 	public int insertProject(Project project) {

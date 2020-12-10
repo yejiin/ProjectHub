@@ -59,7 +59,7 @@ public class ProjectController {
 	@RequestMapping(value = "/detail/{projectNo}", method = RequestMethod.GET)
 	public String content(@PathVariable("projectNo") int projectNo,Model model) {
 		model.addAttribute("projectNo", projectNo);
-		model.addAttribute("projectName", projectservice.projectName(projectNo));
+		model.addAttribute("project", projectservice.project(projectNo));
 		model.addAttribute("websiteList", contentservice.websiteList(projectNo));
 		model.addAttribute("memoList", contentservice.memoList(projectNo));
 		return "content/main";
@@ -94,6 +94,57 @@ public class ProjectController {
 			return "redirect:/project/detail/" + projectNo;
 		}else {
 			return "redirect: ../" + projectNo;
+		}
+	}
+	
+	@RequestMapping(value = "/detail/updatewebView/{projectNo}/{no}", method = RequestMethod.GET)
+	public String updatewebView(@PathVariable("projectNo") int projectNo,@PathVariable("no") int no, Model model) {
+		Content content = new Content();
+		content = contentservice.selectContent(no);
+		model.addAttribute("content",content);
+		return "content/updateweb";
+	}
+	
+	@RequestMapping(value = "/detail/updateweb/{projectNo}/{no}", method = RequestMethod.POST)
+	public String updateWeb(Content content) {
+		int projectNo = content.getProjectNo();
+		int result = contentservice.updateWebsite(content);
+		if(result == 1) {
+			return "redirect:/project/detail/" + projectNo;
+		}else {
+			return "redirect:../" + projectNo;
+		}
+		
+	}
+	
+	@RequestMapping(value = "/detail/updatememoView/{projectNo}/{no}", method = RequestMethod.GET)
+	public String updatememoView(@PathVariable("projectNo") int projectNo,@PathVariable("no") int no, Model model) {
+		Content content = new Content();
+		content = contentservice.selectContent(no);
+		model.addAttribute("content",content);
+		return "content/updatememo";
+	}
+	
+	@RequestMapping(value = "/detail/updatememo/{projectNo}/{no}", method = RequestMethod.POST)
+	public String updateMemo(Content content) {
+		int projectNo = content.getProjectNo();
+		int result = contentservice.updateMemo(content);
+		if(result == 1) {
+			return "redirect:/project/detail/" + projectNo;
+		}else {
+			return "redirect:../" + projectNo;
+		}
+		
+	}
+	
+	
+	@RequestMapping(value = "/detail/delete/{projectNo}/{no}", method = RequestMethod.GET)
+	public String delete(@PathVariable("projectNo") int projectNo,@PathVariable("no") int no) {
+		int result = contentservice.deleteContent(no);
+		if(result == 1) {
+			return "redirect:/project/detail/" + projectNo;
+		}else {
+			return "redirect:../" + projectNo;
 		}
 	}
 }

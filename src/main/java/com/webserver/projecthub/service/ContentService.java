@@ -29,4 +29,20 @@ public class ContentService {
 	public int insertMemo(Content content) {
 		return dao.insertMemo(content);
 	}
+	
+	public Content selectContent(int no) {
+		return dao.selectContent(no);
+	}
+	
+	public int updateWebsite(Content content) {
+		return dao.updateWebsite(content);
+	}
+	
+	public int updateMemo(Content content) {
+		return dao.updateMemo(content);
+	}
+	
+	public int deleteContent(int no) {
+		return dao.deleteContent(no);
+	}
 }

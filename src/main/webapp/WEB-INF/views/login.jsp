@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ProjectHub</title>
-<link rel="stylesheet" href="/resources/css/login.css">
-<link rel="stylesheet" href="/resources/css/common.css">
+<link rel="stylesheet" href="/resources/css/form.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
 </head>
 <body>

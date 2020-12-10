@@ -63,5 +63,56 @@ public class ContentDAO {
 		}
 		return result;
 	}
+	
+	public Content selectContent(int no) {
+		Content content = new Content();
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		
+		try {
+			content = mapper.selectContent(no);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return content;
+	}
+	
+	public int updateWebsite(Content content) {
+		int result = 0;
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		
+		try {
+			result = mapper.updateWebsite(content);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public int updateMemo(Content content) {
+		int result = 0;
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		
+		try {
+			result = mapper.updateMemo(content);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public int deleteContent(int no) {
+		int result = 0;
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		
+		try {
+			result = mapper.deleteContent(no);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 }

@@ -13,4 +13,12 @@ public interface ContentMapper {
 	public int insertWebsite(Content content) throws Exception;
 
 	public int insertMemo(Content content) throws Exception;
+	
+	public Content selectContent(int no) throws Exception;
+	
+	public int updateWebsite(Content content) throws Exception;
+	
+	public int updateMemo(Content content) throws Exception;
+	
+	public int deleteContent(int no) throws Exception;
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +16,6 @@
 	margin-right: 500px;
 }
 
-#text{
-	height: 400px;
-}
-
-
 footer{
   position: absolute;
   left: 0;
@@ -31,22 +26,23 @@ footer{
   color: gray;
   font-size: 12px;
 }
-
-
 </style>
 
 </head>
 <body>
 <%@ include file ="../common/header1.jsp" %>
-<form action="/project/detail/insertmemo/<c:out value="${projectNo}"/>" method="post" style="user-select: auto;">
+<form action="/project/detail/updateweb/<c:out value="${projectNo}"/>/${content.no}" method="post" style="user-select: auto;">
   <fieldset id="main" style="user-select: auto;">
-    <legend style="user-select: auto;">메모 추가</legend>
+    <legend style="user-select: auto;">웹사이트 수정</legend>
     <div class="form-group" style="user-select: auto;">
-      <label for="exampleTextarea" style="user-select: auto;">memo</label>
-      <textarea class="form-control" id="text" name="memo" rows="3" style="user-select: auto;"></textarea>
+      <label style="user-select: auto;">URL</label>
+      <input class="form-control" name="url" placeholder="Enter URL" style="user-select: auto;" value="${content.url}"></input>
     </div>
-    <button type="submit" class="btn btn-primary" style="user-select: auto;">추가하기</button>
+    <div class="form-group" style="user-select: auto;">
+      <label for="exampleTextarea" style="user-select: auto;">메모</label>
+      <textarea class="form-control" name="memo" rows="3" style="user-select: auto;">${content.memo}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="user-select: auto;">수정하기</button>
   </fieldset>
 </form>
-
 <%@ include file ="../common/footer.jsp" %>

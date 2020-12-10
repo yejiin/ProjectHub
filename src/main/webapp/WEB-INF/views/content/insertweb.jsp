@@ -16,6 +16,19 @@
 	margin-right: 500px;
 }
 
+
+footer{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+
+
 </style>
 
 </head>
@@ -23,7 +36,6 @@
 <%@ include file ="../common/header1.jsp" %>
 <form action="/project/detail/insertweb/<c:out value="${projectNo}"/>" method="post" style="user-select: auto;">
   <fieldset id="main" style="user-select: auto;">
-  	<small id="emailHelp" class="form-text text-muted" style="user-select: auto;">웹사이트</small>
     <legend style="user-select: auto;">웹사이트 추가</legend>
     <div class="form-group" style="user-select: auto;">
       <label style="user-select: auto;">URL</label>
@@ -33,8 +45,7 @@
       <label for="exampleTextarea" style="user-select: auto;">메모</label>
       <textarea class="form-control" name="memo" rows="3" style="user-select: auto;"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" style="user-select: auto;">Submit</button>
+    <button type="submit" class="btn btn-primary" style="user-select: auto;">추가하기</button>
   </fieldset>
 </form>
-</body>
-</html>
+<%@ include file ="../common/footer.jsp" %>

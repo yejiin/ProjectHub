@@ -8,6 +8,8 @@
 <title>ProjectHub</title>
 <link rel="stylesheet" href="/resources/css/common.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 /* Design */
@@ -20,7 +22,7 @@
 
 .main{
 color: #272727;
-  font-family: 'Quicksand', serif;
+  font-family: 'Merriweather', serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
@@ -138,7 +140,7 @@ img {
 <%@ include file ="../common/header1.jsp" %>
 <div class="main">
  	<div class="header">
-		<h1>My Project<button type="button" id="insertProject">+</button></h1>
+		<h1>My Project<button type="button" class="btn btn-secondary disabled" id="insertProject">+</button></h1>
 	</div>
 	
 	<ul class="cards">

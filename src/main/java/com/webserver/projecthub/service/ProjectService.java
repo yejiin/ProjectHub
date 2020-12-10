@@ -18,8 +18,8 @@ public class ProjectService {
 		return dao.projectList(userId);
 	}
 	
-	public String projectName(int no) {
-		return dao.projectName(no);
+	public Project project(int no) {
+		return dao.project(no);
 	}
 	
 	public int insertProject(Project project) {

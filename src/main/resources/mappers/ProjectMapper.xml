@@ -11,9 +11,9 @@
 		ORDER BY no DESC
 	</select>
 	
-	<!-- 프로젝트 네임 -->
-	<select id="projectName" parameterType="int" resultType="String">
-		SELECT name
+	<!-- 프로젝트_no -->
+	<select id="project" parameterType="int" resultType="Project">
+		SELECT no, user_id, name, startdate, des
 		FROM project
 		WHERE no = #{no}
 	</select>

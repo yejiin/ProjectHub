@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ProjectHub</title>
-<link rel="stylesheet" href="/resources/css/signup.css">
+<link rel="stylesheet" href="/resources/css/form.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -62,7 +62,15 @@
 			}
 		});
 	}
+	
 </script>
+<style>
+#idChk{
+	text-align: center;
+	margin-top: 5px;
+	height:30px;
+}
+</style>
 </head>
 <body>
 <%@ include file ="./common/header.jsp" %>
@@ -74,7 +82,7 @@
                 <div class="group">
                     <label for="pass" class="label">Id</label>  
                     <input id="id" type="text" class="input" name="id">
-                    <button class="idChk" type="button" id="idChk" onclick="fn_idChk();" value="N">중복확인</button>                    
+                    <button type="button" class="btn btn-secondary" id="idChk" onclick="fn_idChk();" value="N">중복확인</button>                    
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>

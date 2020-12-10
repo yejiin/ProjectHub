@@ -32,4 +32,31 @@
 		INSERT INTO content (project_no, ctgr, url, memo)
 		VALUES (#{projectNo}, "memo", NULL, #{memo})
 	</insert>
+	
+	<!-- content_no -->
+	<select id="selectContent" parameterType="int" resultType="Content">
+		SELECT no, project_no, ctgr, url, memo
+		FROM content
+		WHERE no = #{no}
+	</select>
+	
+	<!-- website update -->
+	<update id="updateWebsite">
+		UPDATE content
+		SET url = #{url}, memo = #{memo}
+		WHERE no = #{no}
+	</update>
+	
+	<!-- memo update -->
+	<update id="updateMemo">
+		UPDATE content
+		SET memo = #{memo}
+		WHERE no = #{no}
+	</update>
+	
+	<!-- content delete -->
+	<delete id="deleteContent" parameterType="int">
+		DELETE FROM content
+		WHERE no = #{no};
+	</delete>
 </mapper>

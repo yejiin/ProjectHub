@@ -1,10 +1,8 @@
 package com.webserver.projecthub.controller;
 
-
-
-
 import java.io.File;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.webserver.projecthub.service.ContentService;
 import com.webserver.projecthub.service.FileService;
@@ -69,11 +69,12 @@ public class ProjectController {
 	}
 	
 	@RequestMapping(value = "/detail/{projectNo}", method = RequestMethod.GET)
-	public String content(@PathVariable("projectNo") int projectNo,Model model) {
+	public String content(@PathVariable("projectNo") int projectNo,Model model) throws Exception {
 		model.addAttribute("projectNo", projectNo);
 		model.addAttribute("project", projectservice.project(projectNo));
 		model.addAttribute("websiteList", contentservice.websiteList(projectNo));
 		model.addAttribute("memoList", contentservice.memoList(projectNo));
+		model.addAttribute("fileList", fileservice.fileList(projectNo));
 		return "content/main";
 	}
 	
@@ -162,7 +163,7 @@ public class ProjectController {
 	@RequestMapping(value = "/detail/uploadfile/{projectNo}", method = RequestMethod.POST)
 	public String insertFile(@PathVariable("projectNo") int projectNo, @RequestPart MultipartFile files) throws  Exception{
 		Files file = new Files();
-		
+		System.out.println("ajax");
 		String sourceFileName = files.getOriginalFilename();
 		String sourceFileNameExtension = FilenameUtils.getExtension(sourceFileName).toLowerCase();
 		File destinationFile;
@@ -173,7 +174,7 @@ public class ProjectController {
 		do { 
 			destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + sourceFileNameExtension; 
 			destinationFile = new File(filePath + destinationFileName); 
-	} while (destinationFile.exists()); 
+		} while (destinationFile.exists()); 
 		
 		destinationFile.getParentFile().mkdirs();
 		files.transferTo(destinationFile);
@@ -186,8 +187,35 @@ public class ProjectController {
 		file.setSize(fileSize);
 		fileservice.insertFile(file);
 		
-		
 		return "redirect:/project/detail/" + projectNo;
 	}
+
+	@RequestMapping(value = "/detail/fileDownload")
+	public ModelAndView fileDownload(@RequestParam("fileOriName") String fileOriName, @RequestParam("fileName") String fileName,@RequestParam("path") String path) throws Exception{
 	
+		Map<String, Object> fileInfo = new HashMap<String, Object>();
+		fileInfo.put("fileOriName", fileOriName);
+		fileInfo.put("fileName",fileName);
+		fileInfo.put("path", path);
+
+		return new ModelAndView("fileDownloadUtil", "fileInfo", fileInfo);
+	}
+	
+	@RequestMapping(value = "/detail/deletefile/{projectNo}/{no}", method = RequestMethod.GET)
+	public String deleteFile(@PathVariable("projectNo") int projectNo, @PathVariable("no") int no) throws Exception {
+		int result = 0;
+		Files fileno = fileservice.fileNo(no);
+		String path = fileno.getPath() + fileno.getName();
+		File file = new File(path);
+		if(file.exists() == true) {
+			file.delete();
+			result = fileservice.deleteFile(no);
+		}
+		
+		if(result == 1) {
+			return "redirect:/project/detail/" + projectNo;
+		}else {
+			return "redirect:/project/detail/" + projectNo;
+		}
+	}
 }

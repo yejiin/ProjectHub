@@ -7,6 +7,23 @@
 		INSERT INTO content_file(name, oriname, path, size, project_no)
 		VALUES (#{name}, #{oriname}, #{path}, #{size}, #{projectNo})
 	</insert>
+	
+	<select id="fileList" parameterType="int" resultType="Files">
+		SELECT no, name, oriname, path, size, project_no
+		FROM content_file
+		WHERE project_no = #{projectNo}
+	</select>
+	
+	<select id="fileNo" parameterType="int" resultType="Files">
+		SELECT no, name, oriname, path, size, project_no
+		FROM content_file
+		WHERE no = #{no};
+	</select>
+	
+	<delete id="deleteFile" parameterType="int">
+		DELETE FROM content_file
+		WHERE no = #{no}
+	</delete>
 
 </mapper>	
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.webserver.projecthub.dao.ContentDAO;
 import com.webserver.projecthub.vo.Content;
+import com.webserver.projecthub.vo.Rank;
 
 @Service
 public class ContentService {
@@ -44,5 +45,9 @@ public class ContentService {
 	
 	public int deleteContent(int no) {
 		return dao.deleteContent(no);
+	}
+	
+	public List<Rank> rank(){
+		return dao.rank();
 	}
 }

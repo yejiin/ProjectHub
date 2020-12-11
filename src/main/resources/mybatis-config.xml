@@ -7,6 +7,7 @@
 		<typeAlias type="com.webserver.projecthub.vo.Project" alias="Project" />
 		<typeAlias type="com.webserver.projecthub.vo.Content" alias="Content" />
 		<typeAlias type="com.webserver.projecthub.vo.Files" alias="Files" />
+		<typeAlias type="com.webserver.projecthub.vo.Rank" alias="Rank" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.webserver.projecthub.dao.mapper.ContentMapper;
 import com.webserver.projecthub.vo.Content;
+import com.webserver.projecthub.vo.Rank;
 
 @Repository
 public class ContentDAO {
@@ -113,6 +114,17 @@ public class ContentDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public List<Rank> rank() {
+		List<Rank> list = new ArrayList<Rank>();
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		try {
+			list = mapper.rank();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

@@ -5,7 +5,7 @@
 	
 	<!-- website list -->
 	<select id="websiteList" parameterType="int" resultType="Content">
-		SELECT no, project_no, ctgr, url, memo
+		SELECT no, project_no, ctgr, url, memo, trans_url
 		FROM content
 		WHERE project_no = #{projectNo}
 		AND ctgr="website"
@@ -14,7 +14,7 @@
 
 	<!-- memo list -->
 	<select id="memoList" parameterType="int" resultType="Content">
-		SELECT no, project_no, ctgr, url, memo
+		SELECT no, project_no, ctgr, url, memo, trans_url
 		FROM content
 		WHERE project_no = #{projectNo}
 		AND ctgr="memo"
@@ -23,19 +23,19 @@
 	
 	<!-- website insert -->
 	<insert id="insertWebsite">
-		INSERT INTO content (project_no, ctgr, url, memo)
-		VALUES (#{projectNo}, "website", #{url}, #{memo})
+		INSERT INTO content (project_no, ctgr, url, memo, trans_url)
+		VALUES (#{projectNo}, "website", #{url}, #{memo}, #{transUrl})
 	</insert>
 	
 	<!-- memo insert -->
 	<insert id="insertMemo">
-		INSERT INTO content (project_no, ctgr, url, memo)
-		VALUES (#{projectNo}, "memo", NULL, #{memo})
+		INSERT INTO content (project_no, ctgr, url, memo, trans_url)
+		VALUES (#{projectNo}, "memo", NULL, #{memo}, NULL)
 	</insert>
 	
 	<!-- content_no -->
 	<select id="selectContent" parameterType="int" resultType="Content">
-		SELECT no, project_no, ctgr, url, memo
+		SELECT no, project_no, ctgr, url, memo, trans_url
 		FROM content
 		WHERE no = #{no}
 	</select>
@@ -59,4 +59,10 @@
 		DELETE FROM content
 		WHERE no = #{no};
 	</delete>
+	
+	<!-- rank -->
+	<select id="rank" resultType="Rank">
+		SELECT trans_url, COUNT(*) AS count, des
+		FROM content WHERE NOT trans_url IS NULL GROUP BY trans_url ORDER BY count DESC LIMIT 10;
+	</select>
 </mapper>

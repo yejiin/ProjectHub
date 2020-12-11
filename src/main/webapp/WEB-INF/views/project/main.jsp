@@ -131,8 +131,9 @@ img {
 	$(document).ready(function(){
 		$("#insertProject").on("click", function(){
 			location.href="./project/insertView";
-		})
-	})
+		});
+		
+	});
 	
 </script>
 </head>

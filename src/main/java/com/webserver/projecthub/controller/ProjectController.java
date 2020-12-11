@@ -86,7 +86,25 @@ public class ProjectController {
 	
 	@RequestMapping(value = "/detail/insertweb/{projectNo}", method = RequestMethod.POST)
 	public String insertWeb(@PathVariable("projectNo") int projectNo,Content content) {
-		int result = contentservice.insertWebsite(content);
+		Content con = new Content();
+		String url = content.getUrl();
+		String[] iurl;
+		String memo = content.getMemo();
+		String transUrl = "";
+		if(url.startsWith("www")) {
+			iurl = url.split("/");
+			transUrl = "https://" + iurl[0];
+		}else {
+			iurl = url.split("/");
+			transUrl = iurl[0] + "//" + iurl[2];
+		}
+		con.setProjectNo(projectNo);
+		con.setUrl(url);
+		con.setMemo(memo);
+		con.setTransUrl(transUrl);
+	
+		
+		int result = contentservice.insertWebsite(con);
 		if(result == 1) {
 			return "redirect:/project/detail/" + projectNo;
 		}else {

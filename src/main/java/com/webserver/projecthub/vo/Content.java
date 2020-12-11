@@ -6,18 +6,20 @@ public class Content {
 	private String ctgr;
 	private String url;
 	private String memo;
+	private String transUrl;
 	
 	public Content() {
 		super();
 	}
 
-	public Content(int no, int projectNo, String ctgr, String url, String memo) {
+	public Content(int no, int projectNo, String ctgr, String url, String memo, String transUrl) {
 		super();
 		this.no = no;
 		this.projectNo = projectNo;
 		this.ctgr = ctgr;
 		this.url = url;
 		this.memo = memo;
+		this.transUrl = transUrl;
 	}
 
 	public int getNo() {
@@ -60,11 +62,21 @@ public class Content {
 		this.memo = memo;
 	}
 
+	public String getTransUrl() {
+		return transUrl;
+	}
+
+	public void setTransUrl(String transUrl) {
+		this.transUrl = transUrl;
+	}
+
 	@Override
 	public String toString() {
 		return "Content [no=" + no + ", projectNo=" + projectNo + ", ctgr=" + ctgr + ", url=" + url + ", memo=" + memo
-				+ "]";
+				+ ", transUrl=" + transUrl + "]";
 	}
+
+	
 
 }
 

@@ -3,6 +3,7 @@ package com.webserver.projecthub.dao.mapper;
 import java.util.List;
 
 import com.webserver.projecthub.vo.Content;
+import com.webserver.projecthub.vo.Rank;
 
 public interface ContentMapper {
 	
@@ -21,4 +22,6 @@ public interface ContentMapper {
 	public int updateMemo(Content content) throws Exception;
 	
 	public int deleteContent(int no) throws Exception;
+	
+	public List<Rank> rank() throws Exception;
 }

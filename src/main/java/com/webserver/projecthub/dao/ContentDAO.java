@@ -137,5 +137,16 @@ public class ContentDAO {
 		}
 		return list;
 	}
+	
+	public int searchWebCount(String keyword) {
+		int result = 0;
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		try {
+			result = mapper.searchWebCount(keyword);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 }

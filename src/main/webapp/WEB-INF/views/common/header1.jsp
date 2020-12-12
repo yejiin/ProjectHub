@@ -8,7 +8,7 @@
 	<a href='/rank' style="text-decoration: none; margin-left: 20px; margin-right: 15px; color: white;">Rank</a>
 	<form action="/search" method="post" class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" name="keyword">
-	  <button id="search" class="btn btn-secondary my-2 my-sm-0" type="submit"">Search</button>
+	  <button id="search" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
     <div class="navbar-brand" style="margin-left: 700px;">
     	<div>${loginId} 님 환영합니다. | <a class="navbar-brand" href="/logout">로그아웃</a></div>

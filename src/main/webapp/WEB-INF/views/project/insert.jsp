@@ -42,13 +42,13 @@
       <label for="InputTitle">공개여부</label>
       <div class="form-check">
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1">
+          <input type="radio" class="form-check-input" name="secret" id="optionsRadios1" value="1" checked="checked" >
           	공개	
         </label>
       </div>
        <div class="form-check">
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+          <input type="radio" class="form-check-input" name="secret" id="optionsRadios2" value="0">
           	비공개
           </label>
       </div> 

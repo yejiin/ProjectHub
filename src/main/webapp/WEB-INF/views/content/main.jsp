@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
-
 #header{
 	z-index: 3;
 	position: fixed;
@@ -16,7 +15,6 @@
   	left: 0;
   	right: 0;
 }
-
 #sidebar-wrapper{
 	background-color: white;
 	z-index: 2;
@@ -25,9 +23,7 @@
     width: 250px;
     margin-left: -250px;
 	border-right: 1px solid gray;
-
 }
-
 .sidebar-nav {
 	position: fixed;
     width: 250px;
@@ -40,7 +36,6 @@
     font-weight: bold;
     list-style: none;
 }
-
 .sidebar-nav li {
   	margin-bottom: 50px;
     text-indent: 1.5em;
@@ -62,7 +57,6 @@
     font-size: 1.3em;
     line-height: 3em;
 }
-
 #page-wrapper {
     margin-top: 68px;
     padding-left: 250px;
@@ -74,11 +68,9 @@
     padding-left: 200px;
     width: 100%;
 }
-
 #name{
 	margin-top: 50px;
 }
-
 .alert{
 	width: 800px;
 }
@@ -87,41 +79,33 @@
 	width: 800px;
 	vertical-align: middle;
 }
-
-
 #close{
 	width: 5px;
 	border: 0;
 	outline: 0;
 }
-
 #modify{
 	margin-right: 20px;
 	width: 10px;
 	border: 0;
 	outline: 0;
 }
-
 #modify1{
 	margin-right: 10px;
 	width: 10px;
 	border: 0;
 }
-
 #modify2{
 	margin-right: 10px;
 	width: 10px;
 	border: 0;
 }
-
 #add{
 	margin-left: 5px;
 }
-
 #file{
 	width: 800px;
 }
-
 footer{
   left: 0;
   bottom: 0;
@@ -131,16 +115,13 @@ footer{
   color: gray;
   font-size: 12px;
 }
-
 </style>
 <script type="text/javascript">
-
 	$(document).ready(function(){
 		$(".custom-file-input").on("change", function(){
 			var fileName = $(this).val().split("\\").pop();
 			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 		});
-
 	});
 	
 	function upweb(no){
@@ -169,8 +150,6 @@ footer{
 			location.href="deletefile/<c:out value="${projectNo}"/>/" + no;
 		}
 	}
-
-
 </script>
 </head>
 <body>

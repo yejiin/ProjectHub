@@ -18,4 +18,20 @@
 		SELECT COUNT(*) FROM user
 		WHERE id = #{id}
 	</select>
+	
+	<select id="searchUser" resultType="String">
+		SELECT id
+		FROM user
+		WHERE
+		id like CONCAT('%',#{keyword},'%') 
+		AND #{keyword} != "" 
+	</select>
+	
+	<select id="searchUserCount" resultType="int">
+		SELECT COUNT(*) as count
+		FROM user
+		WHERE
+		id like CONCAT('%',#{keyword},'%') 
+		AND #{keyword} != "" 
+	</select>
 </mapper>

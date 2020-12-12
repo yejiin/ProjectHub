@@ -1,5 +1,8 @@
 package com.webserver.projecthub.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -48,6 +51,28 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		
+		return result;
+	}
+	
+	public List<String> searchUser(String keyword) {
+		List<String> list = new ArrayList<String>();
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		try {
+			list = mapper.searchUser(keyword);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public int searchUserCount(String keyword) {
+		int result = 0;
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		try {
+			result = mapper.searchUserCount(keyword);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 }

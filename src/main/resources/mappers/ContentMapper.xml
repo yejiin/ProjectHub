@@ -68,9 +68,24 @@
 	
 	<!-- search website -->
 	<select id="searchWeb" resultType="Content">
-		SELECT no, project_no, ctgr, url, memo, trans_url
-		FROM content
-		WHERE ctgr="website" 
-		AND memo like CONCAT('%',#{keyword},'%')
+		SELECT c.no, c.project_no, c.ctgr, c.url, c.memo, c.trans_url
+		FROM content c, project p
+		WHERE c.project_no = p.no
+		AND p.secret = 1 
+		AND ctgr="website" 
+		AND(memo like CONCAT('%',#{keyword},'%') 
+		|| url like CONCAT('%',#{keyword},'%')) 
+		AND #{keyword} != "" 
+	</select>
+	
+	<select id="searchWebCount" resultType="int">
+		SELECT count(*) as count
+		FROM content c, project p
+		WHERE c.project_no = p.no
+		AND p.secret = 1 
+		AND ctgr="website" 
+		AND(memo like CONCAT('%',#{keyword},'%') 
+		|| url like CONCAT('%',#{keyword},'%')) 
+		AND #{keyword} != "" 
 	</select>
 </mapper>

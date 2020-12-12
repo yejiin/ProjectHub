@@ -23,7 +23,7 @@
 <body>
 <%@ include file ="./common/header1.jsp" %>
 <div class="page-wrapper">
-<h2>웹사이트 순위</h2>
+<h1>웹사이트 순위</h1>
 <table class="table table-hover">
   <thead>
     <tr>

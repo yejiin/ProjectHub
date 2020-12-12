@@ -1,5 +1,7 @@
 package com.webserver.projecthub.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,13 @@ public class UserService {
 	
 	public int idChk(User user) {
 		return dao.idChk(user);
+	}
+	
+	public List<String> searchUser(String keyword) {
+		return dao.searchUser(keyword);
+	}
+	
+	public int searchUserCount(String keyword) {
+		return dao.searchUserCount(keyword);
 	}
 }

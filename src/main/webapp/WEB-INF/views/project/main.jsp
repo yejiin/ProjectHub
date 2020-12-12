@@ -11,6 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
+#header{
+	z-index: 3;
+	position: fixed;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+}
 *,
 *::before,
 *::after {
@@ -25,7 +32,7 @@
   	letter-spacing: 0;
   	padding: 1rem;
   	max-width: 1200px;
-  	margin: 0 auto;
+  	margin: 70px auto;
 }
 
 h1 {

@@ -54,4 +54,8 @@ public class ContentService {
 	public List<Content> searchWeb(String keyword){
 		return dao.searchWeb(keyword);
 	}
+	
+	public int searchWebCount(String keyword) {
+		return dao.searchWebCount(keyword);
+	}
 }

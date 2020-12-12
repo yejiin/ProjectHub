@@ -5,7 +5,7 @@
 	
 	<!-- 프로젝트 리스트 -->
 	<select id="projectList" parameterType="String" resultType="Project">
-		SELECT no, user_id, name, startdate, des 
+		SELECT no, user_id, name, startdate, des, secret
 		FROM project
 		WHERE user_id = #{userId}
 		ORDER BY no DESC
@@ -13,13 +13,13 @@
 	
 	<!-- 프로젝트_no -->
 	<select id="project" parameterType="int" resultType="Project">
-		SELECT no, user_id, name, startdate, des
+		SELECT no, user_id, name, startdate, des, secret
 		FROM project
 		WHERE no = #{no}
 	</select>
 	
 	<insert id="insertProject">
-		INSERT INTO project (user_id, name, startdate, des)
-		VALUES ( #{userId}, #{name}, #{startdate}, #{des})
+		INSERT INTO project (user_id, name, startdate, des, secret)
+		VALUES ( #{userId}, #{name}, #{startdate}, #{des}, #{secret})
 	</insert>
 </mapper>

@@ -24,13 +24,13 @@
 <%@ include file ="./common/header1.jsp" %>
 <div class="page-wrapper">
 <h2>웹사이트 순위</h2>
-<table class="table table-hover" style="user-select: auto;">
-  <thead style="user-select: auto;">
-    <tr style="user-select: auto;">
-      <th scope="col" style="user-select: auto;">순위</th>
-      <th scope="col" style="user-select: auto;">사이트</th>
-      <th scope="col" style="user-select: auto;">URL</th>
-      <th scope="col" style="user-select: auto;"></th>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">순위</th>
+      <th scope="col">사이트</th>
+      <th scope="col">URL</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>

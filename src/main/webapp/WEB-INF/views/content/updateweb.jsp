@@ -31,18 +31,18 @@ footer{
 </head>
 <body>
 <%@ include file ="../common/header1.jsp" %>
-<form action="/project/detail/updateweb/<c:out value="${projectNo}"/>/${content.no}" method="post" style="user-select: auto;">
-  <fieldset id="main" style="user-select: auto;">
-    <legend style="user-select: auto;">웹사이트 수정</legend>
-    <div class="form-group" style="user-select: auto;">
-      <label style="user-select: auto;">URL</label>
-      <input class="form-control" name="url" placeholder="Enter URL" style="user-select: auto;" value="${content.url}"></input>
+<form action="/project/detail/updateweb/<c:out value="${projectNo}"/>/${content.no}" method="post">
+  <fieldset id="main">
+    <legend>웹사이트 수정</legend>
+    <div class="form-group">
+      <label>URL</label>
+      <input class="form-control" name="url" placeholder="Enter URL" value="${content.url}"></input>
     </div>
-    <div class="form-group" style="user-select: auto;">
-      <label for="exampleTextarea" style="user-select: auto;">메모</label>
-      <textarea class="form-control" name="memo" rows="3" style="user-select: auto;">${content.memo}</textarea>
+    <div class="form-group">
+      <label for="exampleTextarea">메모</label>
+      <textarea class="form-control" name="memo" rows="3">${content.memo}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary" style="user-select: auto;">수정하기</button>
+    <button type="submit" class="btn btn-primary">수정하기</button>
   </fieldset>
 </form>
 <%@ include file ="../common/footer.jsp" %>

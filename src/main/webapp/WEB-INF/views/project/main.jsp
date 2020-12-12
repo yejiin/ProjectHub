@@ -6,29 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>ProjectHub</title>
-<link rel="stylesheet" href="/resources/css/common.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
-/* Design */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  	box-sizing: border-box;
 }
 
-
 .main{
-color: #272727;
-  font-family: 'Merriweather', serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+	color: #272727;
+  	font-family: 'Merriweather', serif;
+  	font-style: normal;
+  	font-weight: 400;
+  	letter-spacing: 0;
+  	padding: 1rem;
+  	max-width: 1200px;
+  	margin: 0 auto;
 }
 
 h1 {
@@ -37,40 +34,40 @@ h1 {
 }
 
 img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
+  	height: auto;
+  	max-width: 100%;
+  	vertical-align: middle;
 }
 
 .btn1 {
-  color: #ffffff;
-  padding: 0.8rem;
-  font-size: 14px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  font-weight: 400;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
+  	color: #ffffff;
+  	padding: 0.8rem;
+  	font-size: 14px;
+  	text-transform: uppercase;
+  	border-radius: 4px;
+  	font-weight: 400;
+  	display: block;
+  	width: 100%;
+  	cursor: pointer;
+  	border: 1px solid rgba(255, 255, 255, 0.2);
+  	background: transparent;
 }
 
 .btn1:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  	background-color: rgba(255, 255, 255, 0.12);
 }
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  	display: flex;
+  	flex-wrap: wrap;
+  	list-style: none;
+  	margin: 0;
+  	padding: 0;
 }
 
 .cards_item {
-  display: flex;
-  padding: 1rem;
+  	display: flex;
+  	padding: 1rem;
 }
 
 @media (min-width: 40rem) {
@@ -86,47 +83,57 @@ img {
 }
 
 .card {
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  	background-color: white;
+  	border-radius: 0.25rem;
+  	box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  	display: flex;
+  	flex-direction: column;
+  	overflow: hidden;
 }
 
 .card_content {
-  padding: 1rem;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  	padding: 1rem;
+  	background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
 }
 
 .card_title {
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  margin: 0px;
+  	color: #ffffff;
+  	font-size: 1.1rem;
+  	font-weight: 700;
+  	letter-spacing: 1px;
+  	text-transform: capitalize;
+  	margin: 0px;
 }
 
 .card_text {
-  color: #ffffff;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;    
-  font-weight: 400;
+  	color: #ffffff;
+  	font-size: 0.875rem;
+  	line-height: 1.5;
+  	margin-bottom: 1.25rem;    
+  	font-weight: 400;
 }
 .made_by{
-  font-weight: 400;
-  font-size: 13px;
-  margin-top: 35px;
-  text-align: center;
+  	font-weight: 400;
+  	font-size: 13px;
+  	margin-top: 35px;
+  	text-align: center;
 }
 
 #insertProject{
 	margin-left: 20px;
 }
-</style>
 
+footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 95px;
+  text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+
+</style>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#insertProject").on("click", function(){

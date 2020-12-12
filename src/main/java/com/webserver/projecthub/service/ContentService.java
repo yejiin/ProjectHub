@@ -50,4 +50,8 @@ public class ContentService {
 	public List<Rank> rank(){
 		return dao.rank();
 	}
+	
+	public List<Content> searchWeb(String keyword){
+		return dao.searchWeb(keyword);
+	}
 }

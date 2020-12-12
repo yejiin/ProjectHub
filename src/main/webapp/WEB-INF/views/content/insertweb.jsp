@@ -34,18 +34,18 @@ footer{
 </head>
 <body>
 <%@ include file ="../common/header1.jsp" %>
-<form action="/project/detail/insertweb/<c:out value="${projectNo}"/>" method="post" style="user-select: auto;">
-  <fieldset id="main" style="user-select: auto;">
-    <legend style="user-select: auto;">웹사이트 추가</legend>
-    <div class="form-group" style="user-select: auto;">
-      <label style="user-select: auto;">URL</label>
-      <input class="form-control" name="url" placeholder="Enter URL" style="user-select: auto;">
+<form action="/project/detail/insertweb/<c:out value="${projectNo}"/>" method="post">
+  <fieldset id="main">
+    <legend>웹사이트 추가</legend>
+    <div class="form-group">
+      <label>URL</label>
+      <input class="form-control" name="url" placeholder="Enter URL">
     </div>
-    <div class="form-group" style="user-select: auto;">
-      <label for="exampleTextarea" style="user-select: auto;">메모</label>
-      <textarea class="form-control" name="memo" rows="3" style="user-select: auto;"></textarea>
+    <div class="form-group">
+      <label for="exampleTextarea">메모</label>
+      <textarea class="form-control" name="memo" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" style="user-select: auto;">추가하기</button>
+    <button type="submit" class="btn btn-primary">추가하기</button>
   </fieldset>
 </form>
 <%@ include file ="../common/footer.jsp" %>

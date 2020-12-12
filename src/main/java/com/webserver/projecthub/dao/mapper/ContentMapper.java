@@ -24,4 +24,6 @@ public interface ContentMapper {
 	public int deleteContent(int no) throws Exception;
 	
 	public List<Rank> rank() throws Exception;
+	
+	public List<Content> searchWeb(String keyword) throws Exception;
 }

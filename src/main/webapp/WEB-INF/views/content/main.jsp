@@ -192,14 +192,14 @@ footer{
   	<button type="button" class="btn btn-outline-secondary" id="add" onclick="location.href='/project/detail/insertwebView/<c:out value="${projectNo}"/>'">&plus;</button>
   	</h3>
   	<c:forEach items="${websiteList}" var = "list">
-	<div class="card border-secondary mb-3" style="user-select: auto;">
-  		<div class="card-header" style="user-select: auto;">
-  			<button type="button" class="close" data-dismiss="alert" style="user-select: auto;" onclick="del(${list.no})">&times;</button>
-  			<button type="button" class="close" id="modify1" data-dismiss="alert" style="user-select: auto;" onclick="upweb(${list.no})">&VerticalSeparator;</button>
-  			<h4><a href="#" class="alert-link" style="user-select: auto;"><c:out value="${list.url}"/></a></h4>
+	<div class="card border-secondary mb-3">
+  		<div class="card-header" style="height: 40px;">
+  			<button type="button" class="close" onclick="del(${list.no})">&times;</button>
+  			<button type="button" class="close" id="modify1" onclick="upweb(${list.no})">&VerticalSeparator;</button>
+  			<h4 style="font-size:20px;"><a href="#" class="alert-link" ><c:out value="${list.url}"/></a></h4>
   		</div>
-  		<div class="card-body" style="user-select: auto;">
-    		<p class="card-text" style="user-select: auto;"><c:out value="${list.memo}"/></p>
+  		<div class="card-body">
+    		<p class="card-text" style="font-size:15px;"><c:out value="${list.memo}"/></p>
   		</div>
 	</div>
 	</c:forEach>
@@ -218,22 +218,23 @@ footer{
 	</c:forEach>
   </div>
   
-  <div class="form-group" id="file" style="user-select: auto;">
+  <div class="form-group" id="file">
     <h3 style="margin-top: 50px;">파일</h3>
-       <form action="uploadfile/<c:out value="${projectNo}"/>" enctype="multipart/form-data" method="post" class="input-group mb-3" style="user-select: auto;">      <div class="custom-file" style="user-select: auto;">
-        <input type="file" class="custom-file-input" id="customFile" name="files" style="user-select: auto;">
-        <label class="custom-file-label" for="customFile" style="user-select: auto;">Choose file</label>
+      <form action="uploadfile/<c:out value="${projectNo}"/>" enctype="multipart/form-data" method="post" class="input-group mb-3">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile" name="files">
+        <label class="custom-file-label" for="customFile">Choose file</label>
       </div>
-      <div class="input-group-append" style="user-select: auto;">
-        <input type="submit" class="input-group-text" style="user-select: auto;" value="Upload">
+      <div class="input-group-append">
+        <input type="submit" class="input-group-text" value="Upload">
       </div>
     </form>
   </div>
   <table class="table" id="file">
-  <c:forEach items="${fileList}" var = "filelist">
-    <tr style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">파일</th>
-      <td style="user-select: auto;"><a href='/project/detail/fileDownload?fileOriName=${filelist.oriname}&fileName=${filelist.name}&path=${filelist.path}'>${filelist.oriname}</a>
+  <c:forEach items="${fileList}" var="filelist">
+    <tr>
+      <th scope="row">파일</th>
+      <td><a href='/project/detail/fileDownload?fileOriName=${filelist.oriname}&fileName=${filelist.name}&path=${filelist.path}'>${filelist.oriname}</a>
   		<button type="button" class="close" onclick="delfile(${filelist.no})">&times;</button>
   	  </td> 
     </tr>

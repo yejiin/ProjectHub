@@ -26,9 +26,15 @@ public class UserController {
 			model.addAttribute("message", "다시 로그인해주세요");
 			return "login";
 		} else {
-			session.setAttribute("loginId", result.getId());
+			session.setAttribute("loginId", user.getId());
 			return "redirect:/project";
 		}
+	}
+	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
 	}
 	
 	@ResponseBody

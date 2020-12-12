@@ -63,6 +63,14 @@
 	<!-- rank -->
 	<select id="rank" resultType="Rank">
 		SELECT trans_url, COUNT(*) AS count, des
-		FROM content WHERE NOT trans_url IS NULL GROUP BY trans_url ORDER BY count DESC LIMIT 10;
+		FROM content WHERE NOT trans_url IS NULL GROUP BY trans_url ORDER BY count DESC, no DESC LIMIT 10;
+	</select>
+	
+	<!-- search website -->
+	<select id="searchWeb" resultType="Content">
+		SELECT no, project_no, ctgr, url, memo, trans_url
+		FROM content
+		WHERE ctgr="website" 
+		AND memo like CONCAT('%',#{keyword},'%')
 	</select>
 </mapper>

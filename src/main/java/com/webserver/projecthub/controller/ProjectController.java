@@ -43,8 +43,9 @@ public class ProjectController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String projectList(Model model, HttpSession session) {
 		String userId = session.getAttribute("loginId").toString();
+		System.out.println("userid " + userId);
 		model.addAttribute("projectList", projectservice.projectList(userId));
-		System.out.println(model);
+		System.out.println(projectservice.projectList(userId));
 		return "project/main";
 	}
 	

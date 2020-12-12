@@ -126,5 +126,16 @@ public class ContentDAO {
 		}
 		return list;
 	}
+	
+	public List<Content> searchWeb(String keyword){
+		List<Content> list = new ArrayList<Content>();
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		try {
+			list = mapper.searchWeb(keyword);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }

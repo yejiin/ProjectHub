@@ -7,6 +7,13 @@
 <title>ProjectHub</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 #sidebar-wrapper{
     position: fixed;
@@ -51,80 +58,24 @@
 </ul>
 </div>
 <div id="page-content-wrapper">
- <h2>검색 결과</h2>
-<table class="table table-hover" style="user-select: auto;">
-  <thead style="user-select: auto;">
-    <tr style="user-select: auto;">
-      <th scope="col" style="user-select: auto;">Type</th>
-      <th scope="col" style="user-select: auto;">Column heading</th>
-      <th scope="col" style="user-select: auto;">Column heading</th>
-      <th scope="col" style="user-select: auto;">Column heading</th>
-    </tr>
-  </thead>
-  <tbody style="user-select: auto;">
-    <tr class="table-active" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Active</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Default</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-primary" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Primary</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-secondary" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Secondary</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-success" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Success</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-danger" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Danger</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-warning" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Warning</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-info" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Info</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-light" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Light</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-    <tr class="table-dark" style="user-select: auto;">
-      <th scope="row" style="user-select: auto;">Dark</th>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-      <td style="user-select: auto;">Column content</td>
-    </tr>
-  </tbody>
-</table>
- 
+   <div class="page-header">
+        <h1>검색결과</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+        <c:forEach items="${searchWebList}" var = "list">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><c:out value="${list.url}"/></h3>
+            </div>
+            <div class="panel-body">
+            	<c:out value="${list.memo}"/>
+            </div>
+          </div>
+          </c:forEach>
+        </div>
+       
+      </div>
 </div>
 </div>
 </body>

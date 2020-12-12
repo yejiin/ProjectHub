@@ -57,7 +57,7 @@
 	<!-- content delete -->
 	<delete id="deleteContent" parameterType="int">
 		DELETE FROM content
-		WHERE no = #{no};
+		WHERE no = #{no}
 	</delete>
 	
 	<!-- rank -->

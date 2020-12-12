@@ -8,7 +8,11 @@ public interface ProjectMapper {
 	
 	public List<Project> projectList(String userId) throws Exception;
 	
+	public List<Project> userprojectList(String userId) throws Exception;
+	
 	public Project project(int no) throws Exception;
 
 	public int insertProject(Project project) throws Exception;
+
+	public int deleteProject(int no) throws Exception;
 }

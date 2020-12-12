@@ -21,4 +21,5 @@ public class RankController {
 		System.out.println(service.rank());
 		return "rank";
 	}
+	
 }

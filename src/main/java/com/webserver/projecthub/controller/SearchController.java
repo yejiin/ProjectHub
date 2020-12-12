@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webserver.projecthub.service.ContentService;
+import com.webserver.projecthub.service.ProjectService;
 import com.webserver.projecthub.service.UserService;
+
 
 @Controller
 @RequestMapping(value="/search")
@@ -19,6 +21,9 @@ public class SearchController {
 	
 	@Autowired
 	UserService userservice;
+	
+	@Autowired
+	ProjectService projectservice;
 	
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -34,5 +39,11 @@ public class SearchController {
 		return "search";
 	}
 	
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public String auser(@RequestParam("id") String id, Model model) {
+		model.addAttribute("id", id);
+		model.addAttribute("projectList", projectservice.userprojectList(id));
+		return "auser";
+	}
 	
 }

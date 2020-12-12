@@ -18,6 +18,16 @@
 	text-align: center;
 	margin-top: 50px;
 }
+
+footer{
+  	left: 0;
+  	bottom: 0;
+  	width: 100%;
+  	margin-top: 95px;
+  	text-align: center;
+  	color: gray;
+  	font-size: 12px;
+}
 </style>
 </head>
 <body>
@@ -30,20 +40,17 @@
       <th scope="col">순위</th>
       <th scope="col">사이트</th>
       <th scope="col">URL</th>
-      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
   <c:forEach items="${rankList}" var="list" varStatus="status">
-    <tr class="table-light">
+    <tr class="table-active" style="background-color: white;">
       <th scope="row">${status.count}</th>
       <td><c:out value="${list.des}"/></td>
       <td><c:out value="${list.trans_url}"/></td>
-      <td><button>방문하기</button></td>
     </tr>
     </c:forEach>
   </tbody>
 </table>
 </div>
-</body>
-</html>
+<%@ include file ="./common/footer.jsp" %>>

@@ -149,6 +149,13 @@ footer{
 		
 	});
 	
+	function del(no){
+		var chk = confirm("삭제하시겠습니까?");
+		if (chk){
+			location.href="/project/delete/" + no;
+		}
+	}
+	
 </script>
 </head>
 <body>
@@ -164,6 +171,7 @@ footer{
       <div class="card">
         <div class="card_image" style="background-color: black"><img src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg"></div>
         <div class="card_content">
+        <button type="button" class="close" onclick="del(${list.no})">&times;</button>
           <h2 class="card_title">Project Name: <c:out value="${list.name}"/></h2>
           <p class="card_text">start date: <c:out value="${list.startdate}"/></p>
           <button class="btn1 card_btn" onclick="location.href='/project/detail/<c:out value="${list.no}"/>'" >Enter</button>

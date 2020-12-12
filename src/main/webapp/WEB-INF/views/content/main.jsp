@@ -168,13 +168,17 @@ footer{
   	<p><c:out value="${project.des}"/></p>
   <div id="website" >
   	<h3 style="margin-top: 50px;">웹사이트
-  	<button type="button" class="btn btn-outline-secondary" id="add" onclick="location.href='/project/detail/insertwebView/<c:out value="${projectNo}"/>'">&plus;</button>
+  	<c:if test="${sessionId == project.userId}" var="result">
+  	<button type="button" class="btn btn-outline-secondary" id="add" style="border: 0; outline: 0;" onclick="location.href='/project/detail/insertwebView/<c:out value="${projectNo}"/>'">&plus;</button>
+  	</c:if>
   	</h3>
   	<c:forEach items="${websiteList}" var = "list">
 	<div class="card border-secondary mb-3">
   		<div class="card-header" style="height: 40px;">
+  		<c:if test="${sessionId == project.userId}" var="result">
   			<button type="button" class="close" onclick="del(${list.no})">&times;</button>
   			<button type="button" class="close" id="modify1" onclick="upweb(${list.no})">&VerticalSeparator;</button>
+  		</c:if>
   			<h4 style="font-size:20px;"><a href="#" class="alert-link" ><c:out value="${list.url}"/></a></h4>
   		</div>
   		<div class="card-body">
@@ -184,14 +188,19 @@ footer{
 	</c:forEach>
   </div>
   
+  
   <div id="memo">
   	<h3 style="margin-top: 50px;">메모
-  	<button type="button" class="btn btn-outline-secondary" id="add" onclick="location.href='/project/detail/insertmemoView/<c:out value="${projectNo}"/>'">&plus;</button>
+  	<c:if test="${sessionId == project.userId}" var="result">
+  	<button type="button" class="btn btn-outline-secondary" id="add" style="border: 0; outline: 0;" onclick="location.href='/project/detail/insertmemoView/<c:out value="${projectNo}"/>'">&plus;</button>
+  	</c:if>
   	</h3>
   	<c:forEach items="${memoList}" var = "memolist">
   	<div class="alert alert-dismissible alert-light" style="user-select: auto;">
+  	<c:if test="${sessionId == project.userId}" var="result">
   	<button type="button" class="close" id="modify" data-dismiss="alert" style="user-select: auto;" onclick="upmemo(${memolist.no})">&VerticalSeparator;</button>
   	<button type="button" class="close" id="close" onclick="del(${memolist.no})">&times;</button>
+  	</c:if>
   	<p class="mb-0" style="user-select: auto;"><c:out value="${memolist.memo}"/></p>
 	</div>
 	</c:forEach>
@@ -199,6 +208,7 @@ footer{
   
   <div class="form-group" id="file">
     <h3 style="margin-top: 50px;">파일</h3>
+    <c:if test="${sessionId == project.userId}" var="result">
       <form action="uploadfile/<c:out value="${projectNo}"/>" enctype="multipart/form-data" method="post" class="input-group mb-3">
       <div class="custom-file">
         <input type="file" class="custom-file-input" id="customFile" name="files">
@@ -208,13 +218,16 @@ footer{
         <input type="submit" class="input-group-text" value="Upload">
       </div>
     </form>
+    </c:if>
   </div>
   <table class="table" id="file">
   <c:forEach items="${fileList}" var="filelist">
     <tr>
       <th scope="row">파일</th>
       <td><a href='/project/detail/fileDownload?fileOriName=${filelist.oriname}&fileName=${filelist.name}&path=${filelist.path}'>${filelist.oriname}</a>
+  		<c:if test="${sessionId == project.userId}" var="result">
   		<button type="button" class="close" onclick="delfile(${filelist.no})">&times;</button>
+  		</c:if>
   	  </td> 
     </tr>
     </c:forEach>

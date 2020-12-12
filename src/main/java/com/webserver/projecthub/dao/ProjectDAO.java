@@ -29,6 +29,19 @@ public class ProjectDAO {
 		return list;
 	}
 	
+	public List<Project> userprojectList(String userId) {
+		List<Project> list = new ArrayList<Project>();
+		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
+		try {
+			list = mapper.userprojectList(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
+	
 	public Project project(int no) {
 		Project project = new Project();
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
@@ -46,6 +59,18 @@ public class ProjectDAO {
 		
 		try {
 			result = mapper.insertProject(project);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int deleteProject(int no) {
+		int result = 0;
+		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
+		
+		try {
+			result = mapper.deleteProject(no);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

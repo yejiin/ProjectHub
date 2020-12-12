@@ -43,9 +43,8 @@ public class ProjectController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String projectList(Model model, HttpSession session) {
 		String userId = session.getAttribute("loginId").toString();
-		System.out.println("userid " + userId);
 		model.addAttribute("projectList", projectservice.projectList(userId));
-		System.out.println(projectservice.projectList(userId));
+
 		return "project/main";
 	}
 	
@@ -68,9 +67,22 @@ public class ProjectController {
 			return "project/insert";
 		}
 	}
+
+	@RequestMapping(value = "/delete/{no}", method = RequestMethod.GET)
+	public String deleteProject(@PathVariable("no") int no){
+		int result = projectservice.deleteProjcet(no);
+		if(result == 1 ) {
+			System.out.println("project 삭제 성공");
+		}else {
+			System.out.println("project 삭제 실패");
+		}
+		
+		return "redirect:/project";
+	}
 	
 	@RequestMapping(value = "/detail/{projectNo}", method = RequestMethod.GET)
-	public String content(@PathVariable("projectNo") int projectNo,Model model) throws Exception {
+	public String content(@PathVariable("projectNo") int projectNo,Model model, HttpSession session) throws Exception {
+		model.addAttribute("sessionId", session.getAttribute("loginId"));
 		model.addAttribute("projectNo", projectNo);
 		model.addAttribute("project", projectservice.project(projectNo));
 		model.addAttribute("websiteList", contentservice.websiteList(projectNo));

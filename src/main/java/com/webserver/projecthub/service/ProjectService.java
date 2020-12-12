@@ -18,12 +18,20 @@ public class ProjectService {
 		return dao.projectList(userId);
 	}
 	
+	public List<Project> userprojectList(String userId) {
+		return dao.userprojectList(userId);
+	}
+	
 	public Project project(int no) {
 		return dao.project(no);
 	}
 	
 	public int insertProject(Project project) {
 		return dao.insertProject(project);
+	}
+	
+	public int deleteProjcet(int no) {
+		return dao.deleteProject(no);
 	}
 	
 }

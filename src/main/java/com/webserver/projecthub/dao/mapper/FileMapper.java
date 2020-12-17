@@ -13,5 +13,7 @@ public interface FileMapper {
 	public Files fileNo(int no) throws Exception;
 	
 	public int deleteFile(int no) throws Exception;
+	
+	public int deleteAllFile(int projectNo) throws Exception;
 
 }

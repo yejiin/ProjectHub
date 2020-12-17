@@ -2,6 +2,7 @@ package com.webserver.projecthub.controller;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -69,14 +70,26 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/delete/{no}", method = RequestMethod.GET)
-	public String deleteProject(@PathVariable("no") int no){
+	public String deleteProject(@PathVariable("no") int no) throws Exception{
+		contentservice.deleteAllContent(no);
+		
+		List<Files> fileno = fileservice.fileList(no);
+		System.out.println(fileno);
+		for(int i=0 ; i<fileno.size(); i++) {
+			String path = fileno.get(i).getPath() + fileno.get(i).getName();
+			File file = new File(path);
+			fileservice.deleteFile(fileno.get(i).getNo());
+			if(file.exists() == true) {
+				file.delete();
+			}
+		}
 		int result = projectservice.deleteProjcet(no);
 		if(result == 1 ) {
 			System.out.println("project 삭제 성공");
 		}else {
 			System.out.println("project 삭제 실패");
 		}
-		
+	
 		return "redirect:/project";
 	}
 	

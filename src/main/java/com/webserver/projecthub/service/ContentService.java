@@ -47,6 +47,10 @@ public class ContentService {
 		return dao.deleteContent(no);
 	}
 	
+	public int deleteAllContent(int projectNo) {
+		return dao.deleteAllContent(projectNo);
+	}
+	
 	public List<Rank> rank(){
 		return dao.rank();
 	}

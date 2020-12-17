@@ -116,6 +116,18 @@ public class ContentDAO {
 		return result;
 	}
 	
+	public int deleteAllContent(int projectNo) {
+		int result = 0;
+		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);
+		
+		try {
+			result = mapper.deleteAllContent(projectNo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	public List<Rank> rank() {
 		List<Rank> list = new ArrayList<Rank>();
 		ContentMapper mapper = sqlSession.getMapper(ContentMapper.class);

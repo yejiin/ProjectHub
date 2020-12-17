@@ -25,5 +25,9 @@
 		WHERE no = #{no}
 	</delete>
 
+	<delete id="deleteAllFile" parameterType="int">	
+		DELETE FROM content_file
+		WHERE no = #{projectNo}
+	</delete>
 </mapper>	
 	

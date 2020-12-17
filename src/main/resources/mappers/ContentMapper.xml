@@ -60,6 +60,11 @@
 		WHERE no = #{no}
 	</delete>
 	
+	<delete id="deleteAllContent" parameterType="int">
+		DELETE FROM content
+		WHERE project_no = #{projectNo}
+	</delete>
+	
 	<!-- rank -->
 	<select id="rank" resultType="Rank">
 		SELECT trans_url, COUNT(*) AS count, des

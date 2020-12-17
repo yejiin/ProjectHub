@@ -29,4 +29,8 @@ public class FileService {
 	public int deleteFile(int no) throws Exception {
 		return dao.deleteFile(no);
 	}
+	
+	public int deleteAllFile(int projectNo) throws Exception {
+		return dao.deleteFile(projectNo);
+	}
 }

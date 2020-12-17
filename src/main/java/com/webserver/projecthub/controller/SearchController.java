@@ -29,13 +29,14 @@ public class SearchController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String search(@RequestParam("keyword") String keyword, Model model) {
 		System.out.println("keyword: " + keyword);
+		int webcount =contentservice.searchWebCount(keyword);
+		int usercount = userservice.searchUserCount(keyword);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("searchWebList", contentservice.searchWeb(keyword));
-		model.addAttribute("searchWebCount", contentservice.searchWebCount(keyword));
+		model.addAttribute("searchWebCount", webcount);
 		model.addAttribute("searchUser", userservice.searchUser(keyword));
-		model.addAttribute("searchUserCount", userservice.searchUserCount(keyword));
-		model.addAttribute("searchAllCount", contentservice.searchWebCount(keyword)+userservice.searchUserCount(keyword));
-		System.out.println("Search user model : " + userservice.searchUser(keyword));
+		model.addAttribute("searchUserCount", usercount);
+		model.addAttribute("searchAllCount", webcount+usercount);
 		return "search";
 	}
 	

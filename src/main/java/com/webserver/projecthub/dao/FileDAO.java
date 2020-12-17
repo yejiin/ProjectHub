@@ -46,4 +46,11 @@ public class FileDAO {
 		
 	}
 
+	public int deleteAllFile(int projectNo) throws Exception{
+		int result = 0;
+		FileMapper mapper = sqlSession.getMapper(FileMapper.class);
+		result = mapper.deleteAllFile(projectNo);
+		return result;
+		
+	}
 }
